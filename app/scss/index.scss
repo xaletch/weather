@@ -1,0 +1,20 @@
+@import './components/all';
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #EAEAEA;
+    overflow-y: hidden;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.error {
+    width: 700px;
+    margin: 0 auto;
+    padding: 150px 350px;
+    font-size: 22px;
+    text-align: center;
+}

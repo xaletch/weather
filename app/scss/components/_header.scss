@@ -1,0 +1,39 @@
+.header {
+    background: rgb(113, 151, 223);
+    &__content {
+        padding: 50px 50px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .form {
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        &__input {
+            width: 350px;
+            padding: 14px 45px 14px 15px;
+            font-size: 15px;
+            font-weight: 400;
+            user-select: none;
+            border: none;
+            outline: none;
+            border-radius: 15px;
+        }
+        
+        &__button {
+            padding: 0 35px;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+            position: absolute;
+            left: 380px;
+            background: rgb(245, 163, 69);
+            color: #111;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}

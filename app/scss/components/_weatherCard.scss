@@ -1,0 +1,41 @@
+.weather {
+    .container {
+        max-width: 1100px;
+        padding: 80px 30px;
+        margin: 0 auto;
+    }
+    
+    &__card--content {
+        width: 400px;
+        margin: 0 auto;
+        padding: 15px 25px 50px 25px;
+        background: #ffffff;
+        border-radius: 30px;
+    }
+
+    &__card--location {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    &__card--info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        img {
+            width: 150px;
+        }
+    }
+
+    &__card--temperature {
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+        
+    &__card--precipitation {
+        font-weight: 600;
+    }
+}
