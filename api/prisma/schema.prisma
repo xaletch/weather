@@ -4,10 +4,55 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+
+model City {
+  id                Int             @id               @default(autoincrement())
+  name              String
+  country           String?
+  lat               Float
+  lng               Float
+
+  favorite          Favorite?
+  weather           Weather[]
+
+  @@unique([name, lat, lng])
+  @@map("cities")
+}
+
+model Favorite {
+  id                Int             @id               @default(autoincrement())
+
+  cityId            Int             @unique           @map("city_id")
+  city              City            @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  createdAt         DateTime        @default(now())   @map("created_at")
+
+  @@map("favorites")
+}
+
+model Weather {
+  id                Int             @id               @default(autoincrement())
+
+  temperature       Float?
+  code              Int?
+  windSpeed         Float?          @map("wind_speed")
+  rawData           Json?           @map("raw_data")
+  fetchedAt         DateTime        @default(now())   @map("fetched_at")
+  success           Boolean         @default(true)
+  errorMessage      String?         @map("error_message")
+
+  cityId            Int             @map("city_id")
+  city              City            @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@index([cityId, fetchedAt(sort: Desc)])
+  @@map("weather")
 }
