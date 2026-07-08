@@ -1,7 +1,7 @@
 # Погода в избранных городах
 
 ## 1. Установка
-# Клонируйте репо
+### Клонируйте репо
 ```bash
 git clone https://github.com/xaletch/weather.git
 cd weather
